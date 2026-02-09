@@ -1,5 +1,7 @@
 import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.DesafioDeCodigo;
+import br.com.dio.desafio.dominio.DesafioDeProjeto;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
@@ -22,6 +24,21 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
+
+        DesafioDeCodigo desafioDeCodigo = new DesafioDeCodigo();
+        desafioDeCodigo.setTitulo("Desafio: SAT solver");
+        desafioDeCodigo.setDescricao("Desafio de código para resolver o problema do SAT solver");
+        desafioDeCodigo.setSourceCode("public class SATSolver {\n" +
+                "    public boolean solve(int[][] clauses) {\n" +
+                "        // Implementação do algoritmo de resolução do SAT solver\n" +
+                "        return true; // Retorna true se o problema for satisfatível, false caso contrário\n" +
+                "    }\n" +
+                "}");
+        
+        DesafioDeProjeto desafioDeProjeto = new DesafioDeProjeto();
+        desafioDeProjeto.setTitulo("Desafio: Sistema de Gerenciamento de Tarefas");
+        desafioDeProjeto.setDescricao("Desafio de projeto para criar um sistema de gerenciamento de tarefas");
+        desafioDeProjeto.setUrl("https://github.com/desafio-gerenciamento-tarefas");
         /*System.out.println(curso1);
         System.out.println(curso2);
         System.out.println(mentoria);*/
@@ -32,6 +49,11 @@ public class Main {
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
+
+        Bootcamp bootcamp2 = new Bootcamp();
+        bootcamp2.setNome("Desafio de Código e Projeto");
+        bootcamp2.getConteudos().add(desafioDeCodigo);
+        bootcamp2.getConteudos().add(desafioDeProjeto);
 
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
@@ -57,6 +79,16 @@ public class Main {
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
+
+        Dev devThiago = new Dev();
+        devThiago.setNome("Thiago");
+        devThiago.inscreverBootcamp(bootcamp2);
+        System.out.println("Conteúdos Inscritos Thiago:" + devThiago.getConteudosInscritos());
+        devThiago.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Thiago:" + devThiago.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Thiago:" + devThiago.getConteudosConcluidos());
+        System.out.println("XP:" + devThiago.calcularTotalXp());
 
     }
 
